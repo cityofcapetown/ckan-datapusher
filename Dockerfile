@@ -1,5 +1,5 @@
-FROM ubuntu:16.04
-MAINTAINER OpenUp
+FROM ubuntu:18.04
+MAINTAINER Gordon Inggs 
 
 ENV DEBIAN_FRONTEND noninteractive
 
@@ -12,7 +12,7 @@ RUN apt-get update \
                        git \
                        libffi-dev
 RUN pip install --upgrade pip
-RUN pip install -e git+https://github.com/ckan/datapusher.git#egg=datapusher \
+RUN pip install -e git+https://github.com/ckan/datapusher.git@0.0.15#egg=datapusher \
  && pip install gunicorn
 RUN pip install -r /src/datapusher/requirements.txt
 
